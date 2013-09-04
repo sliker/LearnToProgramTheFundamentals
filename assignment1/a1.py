@@ -77,19 +77,48 @@ def to_24_hour_clock(hours):
     return hours % 24
 
 
+def get_hours(seconds):
+    """ (int) -> int
 
-### Write your get_hours function definition here:
+    Return the number of hours since midnight in the specified number of seconds
+
+    >>> get_hours(3800)
+    1
+    >>> get_hours(7600)
+    2
+    """
+
+    return to_24_hour_clock(seconds // 3600)
+
+
+def get_minutes(seconds):
+    """ (int) -> int
+
+    Return the number of minutes since midnight in the specified number of seconds
+
+    >>> get_minutes(3800)
+    3
+    >>> get_minutes(7600)
+    6
+    """
+
+    return (seconds // 60 % 10) % 60
 
 
 
+def get_seconds(seconds):
+    """ (int) -> int
 
-### Write your get_minutes function definition here:
+    Return the number of seconds since midnight in the specified number
+    of seconds
 
+    >>> get_seconds(3800)
+    20
+    >>> get_seconds(7600)
+    40
+    """
 
-
-
-### Write your get_seconds function definition here:
-
+    return (seconds // 60 % 10) % 60
 
 
 
