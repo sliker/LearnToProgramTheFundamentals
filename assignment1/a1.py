@@ -118,7 +118,7 @@ def get_seconds(seconds):
     40
     """
 
-    return ( (seconds - 3600) // 10 ) % 60
+    return seconds % 60
 
 
 
