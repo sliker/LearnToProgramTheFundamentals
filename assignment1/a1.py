@@ -118,7 +118,7 @@ def get_seconds(seconds):
     40
     """
 
-    return (seconds // 60 % 10) % 60
+    return ( (seconds - 3600 * get_hours(seconds)) // 10 ) % 60
 
 
 
@@ -141,7 +141,8 @@ def time_to_utc(utc_offset, time):
     >>> time_to_utc(-1, 23.0)
     0.0
     """
-
+    r = time - utc_offset
+    return to_24_hour_clock(r)
 
 
 def time_from_utc(utc_offset, time):
@@ -166,6 +167,7 @@ def time_from_utc(utc_offset, time):
     >>> time_from_utc(+1, 23.0)
     0.0
     """
-
+    r = time + utc_offset
+    return to_24_hour_clock(r)
 
 
