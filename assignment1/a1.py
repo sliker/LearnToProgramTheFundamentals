@@ -102,7 +102,7 @@ def get_minutes(seconds):
     6
     """
 
-    return (seconds // 60 % 10) % 60
+    return ( (seconds - 3600) // 60 ) % 60
 
 
 
@@ -118,7 +118,7 @@ def get_seconds(seconds):
     40
     """
 
-    return ( (seconds - 3600 * get_hours(seconds)) // 10 ) % 60
+    return ( (seconds - 3600) // 10 ) % 60
 
 
 
