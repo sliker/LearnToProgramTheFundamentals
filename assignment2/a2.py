@@ -70,3 +70,64 @@ def is_valid_sequence(dna):
     False
     
     """
+
+    valid = True
+    for char in dna:
+        if char not in 'ATCG':
+            valid = False
+            break
+
+    return valid
+
+
+def insert_sequence(dna1, dna2, index):
+    """ (str, str, int) -> str
+
+    Return the DNA sequence obtained by inserting dna2
+    sequence into dna1 sequence at the given index
+    
+    >>> insert_sequence('CCGG', 'AT', 2)
+    'CCATGG'
+    >>> insert_sequence('CCGGATAG', 'TGC', 4)
+    'CCGGTGCATAG'
+    
+    """
+    dna = dna1[:index] + dna2 + dna1[index:]
+
+    return dna
+
+def get_complement(nucleotide):
+    """ (str) -> str
+
+    Return the nucleotide's complement in nucleotide
+    >>> get_complement('A')
+    'T'
+
+    >>> get_complement('C')
+    'G'
+    
+    """
+    if nucleotide == 'A':
+        return 'T'
+    elif nucleotide == 'T':
+        return 'A'
+    elif nucleotide == 'C':
+        return 'G'
+    elif nucleotide == 'G':
+        return 'C'
+
+def get_complementary_sequence(dna):
+    """ (str) -> str
+
+    Return the DNA sequence that is complementary to the given dna sequence.
+
+    >>> get_complementary_sequence('AT')
+    'TA'
+    
+    """
+    complementary = ''
+    
+    for char in dna:
+        complementary = complementary + get_complement(char)
+
+    return complementary
