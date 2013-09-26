@@ -189,9 +189,9 @@ def read_words(words_file):
     """
     #wordlist_path = '/Users/david.velasquez/Downloads/LearnToProgramTheFundamentals/assignment3/wordlist1.txt'
  
-    wordlist_content = open(words_file, 'r')
-    wordlist_list = wordlist_content.readlines()
-    wordlist_content.close()
+    #wordlist_content = open(words_file, 'r')
+    wordlist_list = words_file.readlines()
+    #wordlist_content.close()
     wordlist = []
     for i in range(len(wordlist_list)):
         wordlist.append(wordlist_list[i].rstrip('\n'))
@@ -205,9 +205,9 @@ def read_board(board_file):
     """
     #board_path = '/Users/david.velasquez/Downloads/LearnToProgramTheFundamentals/assignment3/board1.txt'
     
-    board_content = open(board_file, 'r')
-    board_list = board_content.readlines()
-    board_content.close()
+    #board_content = open(board_file, 'r')
+    board_list = board_file.readlines()
+    #board_content.close()
     board = []
     for i in range(len(board_list)):
         word = board_list[i].rstrip('\n')
