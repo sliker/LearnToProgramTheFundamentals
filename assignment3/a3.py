@@ -37,8 +37,11 @@ def make_str_from_row(board, row_index):
     >>> make_str_from_row([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 0)
     'ANTT'
     """
-    row = board[row_index]
-    return ''.join(row)
+    s = ''
+    if row_index < len(board):
+        row = board[row_index]
+        s = ''.join(row) 
+    return s
 
 def make_str_from_column(board, column_index):
     """ (list of list of str, int) -> str
@@ -51,8 +54,12 @@ def make_str_from_column(board, column_index):
     """
 
     column = ''
-    for board_list in board:
-        column = column + board_list[column_index]
+    
+    m = len(max(board))
+    
+    if column_index < m:
+        for board_list in board:
+            column = column + board_list[column_index]
 
     return column
 
@@ -91,7 +98,7 @@ def board_contains_word_in_column(board, word):
     True
     """
     
-    for column_index in range(len(board[0])):
+    for column_index in range(len(max(board))):
         if word in make_str_from_column(board, column_index):
             return True
 
@@ -163,7 +170,12 @@ def num_words_on_board(board, words):
     >>> num_words_on_board([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], ['ANT', 'BOX', 'SOB', 'TO'])
     3
     """
-    
+    total = 0
+    for word in words:
+        if board_contains_word(board,word):
+            total = total + 1
+
+    return total
 
 
 def read_words(words_file):
